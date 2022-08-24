@@ -1,4 +1,4 @@
-class ItcCollapse {
+class VCCollapse {
   constructor(target, duration = 350) {
     this._target = target;
     this._duration = duration;

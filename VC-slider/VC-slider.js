@@ -1,10 +1,8 @@
 /**
- * ItcSlider by itchief v3.0.0 (https://github.com/itchief/ui-components/tree/master/itc-slider)
- * Copyright 2020 - 2022 Alexander Maltsev
- * Licensed under MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+ * Copyright 2020 - 2022
  */
 
-class ItcSlider {
+class VCSlider {
   static CLASS_CONTROL = 'slider__control';
   static CLASS_CONTROL_HIDE = 'slider__control_hide';
   static CLASS_ITEM_ACTIVE = 'slider__item_active';
@@ -20,7 +18,7 @@ class ItcSlider {
   static contains = [];
 
   static createInstances() {
-    document.querySelectorAll('[data-slider="itc-slider"]').forEach((el) => {
+    document.querySelectorAll('[data-slider="VC-slider"]').forEach((el) => {
       if (this.contains.find((item) => item.el === el)) {
         return;
       }
@@ -36,7 +34,7 @@ class ItcSlider {
         value = Number.isNaN(Number(value)) ? Number(value) : value;
         params[key] = value;
       });
-      this.contains.push({ el, slider: new ItcSlider(el, params) });
+      this.contains.push({ el, slider: new VCSlider(el, params) });
       el.dataset.sliderId = this.contains.length;
       el.querySelectorAll('.slider__control').forEach((btn) => {
         btn.dataset.sliderTarget = this.contains.length;
@@ -46,12 +44,12 @@ class ItcSlider {
 
   constructor(selector, config) {
     this._el = typeof selector === 'string' ? document.querySelector(selector) : selector;
-    this._elWrapper = this._el.querySelector(ItcSlider.SEL_WRAPPER);
-    this._elItems = this._el.querySelector(ItcSlider.SEL_ITEMS);
-    this._elsItem = this._el.querySelectorAll(ItcSlider.SEL_ITEM);
-    this._elsIndicator = this._el.querySelectorAll(ItcSlider.SEL_INDICATOR);
-    this._btnPrev = this._el.querySelector(ItcSlider.SEL_PREV);
-    this._btnNext = this._el.querySelector(ItcSlider.SEL_NEXT);
+    this._elWrapper = this._el.querySelector(VCSlider.SEL_WRAPPER);
+    this._elItems = this._el.querySelector(VCSlider.SEL_ITEMS);
+    this._elsItem = this._el.querySelectorAll(VCSlider.SEL_ITEM);
+    this._elsIndicator = this._el.querySelectorAll(VCSlider.SEL_INDICATOR);
+    this._btnPrev = this._el.querySelector(VCSlider.SEL_PREV);
+    this._btnNext = this._el.querySelector(VCSlider.SEL_NEXT);
 
     this._exOrderMin = 0;
     this._exOrderMax = 0;
@@ -83,7 +81,7 @@ class ItcSlider {
   _addEventListener() {
     this._el.addEventListener('click', (e) => {
       this._autoplay('stop');
-      if (e.target.classList.contains(ItcSlider.CLASS_CONTROL)) {
+      if (e.target.classList.contains(VCSlider.CLASS_CONTROL)) {
         e.preventDefault();
         this._direction = e.target.dataset.slide;
         this._move();
@@ -105,7 +103,7 @@ class ItcSlider {
       });
     }
     if (this._config.loop) {
-      this._elItems.addEventListener('itcslider-start', () => {
+      this._elItems.addEventListener('VCslider-start', () => {
         if (this._isBalancing) {
           return;
         }
@@ -207,14 +205,14 @@ class ItcSlider {
   _changeActiveItems() {
     this._stateItems.forEach((item, index) => {
       if (item) {
-        this._elsItem[index].classList.add(ItcSlider.CLASS_ITEM_ACTIVE);
+        this._elsItem[index].classList.add(VCSlider.CLASS_ITEM_ACTIVE);
       } else {
-        this._elsItem[index].classList.remove(ItcSlider.CLASS_ITEM_ACTIVE);
+        this._elsItem[index].classList.remove(VCSlider.CLASS_ITEM_ACTIVE);
       }
       if (this._elsIndicator.length && item) {
-        this._elsIndicator[index].classList.add(ItcSlider.CLASS_INDICATOR_ACTIVE);
+        this._elsIndicator[index].classList.add(VCSlider.CLASS_INDICATOR_ACTIVE);
       } else if (this._elsIndicator.length && !item) {
-        this._elsIndicator[index].classList.remove(ItcSlider.CLASS_INDICATOR_ACTIVE);
+        this._elsIndicator[index].classList.remove(VCSlider.CLASS_INDICATOR_ACTIVE);
       }
     });
   }
@@ -228,13 +226,13 @@ class ItcSlider {
         return;
       }
       if (this._btnPrev) {
-        this._btnPrev.classList.remove(ItcSlider.CLASS_CONTROL_HIDE);
-        this._btnNext.classList.remove(ItcSlider.CLASS_CONTROL_HIDE);
+        this._btnPrev.classList.remove(VCSlider.CLASS_CONTROL_HIDE);
+        this._btnNext.classList.remove(VCSlider.CLASS_CONTROL_HIDE);
       }
       if (this._btnPrev && transform === -limit) {
-        this._btnNext.classList.add(ItcSlider.CLASS_CONTROL_HIDE);
+        this._btnNext.classList.add(VCSlider.CLASS_CONTROL_HIDE);
       } else if (this._btnPrev && transform === 0) {
-        this._btnPrev.classList.add(ItcSlider.CLASS_CONTROL_HIDE);
+        this._btnPrev.classList.add(VCSlider.CLASS_CONTROL_HIDE);
       }
     }
     if (this._direction === 'next') {
@@ -245,7 +243,7 @@ class ItcSlider {
     this._changeActiveItems();
     this._transform = transform;
     this._elItems.style.transform = `translateX(${transform}px)`;
-    this._elItems.dispatchEvent(new CustomEvent('itcslider-start', {
+    this._elItems.dispatchEvent(new CustomEvent('VCslider-start', {
       bubbles: true
     }));
   }
@@ -285,7 +283,7 @@ class ItcSlider {
       this._elsItem[lastIndex].style.transform = `translateX(${translate}px)`;
       this._updateExProperties();
     } else if (this._btnPrev) {
-      this._btnPrev.classList.add(ItcSlider.CLASS_CONTROL_HIDE);
+      this._btnPrev.classList.add(VCSlider.CLASS_CONTROL_HIDE);
     }
     this._changeActiveItems();
     this._autoplay();
@@ -299,11 +297,11 @@ class ItcSlider {
       return;
     }
     this._autoplay('stop');
-    this._elItems.classList.add(ItcSlider.TRANSITION_OFF);
+    this._elItems.classList.add(VCSlider.TRANSITION_OFF);
     this._elItems.style.transform = 'translateX(0)';
     this._setInitialValues();
     window.requestAnimationFrame(() => {
-      this._elItems.classList.remove(ItcSlider.TRANSITION_OFF);
+      this._elItems.classList.remove(VCSlider.TRANSITION_OFF);
     });
   }
 
@@ -337,5 +335,5 @@ class ItcSlider {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  ItcSlider.createInstances();
+  VCSlider.createInstances();
 });

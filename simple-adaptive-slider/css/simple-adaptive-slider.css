@@ -1,11 +1,9 @@
 /**
-  * SimpleAdaptiveSlider by Itchief v2.0.0 (https://github.com/itchief/ui-components/tree/master/simple-adaptive-slider)
-  * Copyright 2020 - 2021 Alexander Maltsev
-  * Licensed under MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+  * Copyright 2020 - 2022
   */
 
 /* стили для корневого элемента слайдера */
-.itcss {
+.VCss {
   position: relative;
   overflow: hidden;
   max-width: 600px;
@@ -14,14 +12,14 @@
 }
 
 /* стили для wrapper */
-.itcss__wrapper {
+.VCss__wrapper {
   position: relative;
   overflow: hidden;
   background-color: #eee;
 }
 
 /* стили для элемента, в котором непосредственно расположены элементы (слайды) */
-.itcss__items {
+.VCss__items {
   display: flex;
   transition: transform 0.5s ease;
 }
@@ -32,14 +30,14 @@
 }
 
 /* стили для элементов */
-.itcss__item {
+.VCss__item {
   flex: 0 0 100%;
   max-width: 100%;
   position: relative;
 }
 
 /* кнопки Prev и Next */
-.itcss__control {
+.VCss__control {
   position: absolute;
   top: 50%;
   width: 40px;
@@ -54,26 +52,26 @@
   user-select: none;
 }
 
-.itcss__control_show {
+.VCss__control_show {
   display: flex;
 }
 
-.itcss__control:hover,
-.itcss__control:focus {
+.VCss__control:hover,
+.VCss__control:focus {
   color: #fff;
   text-decoration: none;
   opacity: 0.7;
 }
 
-.itcss__control_prev {
+.VCss__control_prev {
   left: 0;
 }
 
-.itcss__control_next {
+.VCss__control_next {
   right: 0;
 }
 
-.itcss__control::before {
+.VCss__control::before {
   content: '';
   display: inline-block;
   width: 20px;
@@ -82,16 +80,16 @@
   background-size: 100% 100%;
 }
 
-.itcss__control_prev::before {
+.VCss__control_prev::before {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
 
-.itcss__control_next::before {
+.VCss__control_next::before {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
 /* Индикаторы */
-.itcss__indicators {
+.VCss__indicators {
   position: absolute;
   left: 0;
   right: 0;
@@ -104,7 +102,7 @@
   user-select: none;
 }
 
-.itcss__indicator {
+.VCss__indicator {
   flex: 0 1 auto;
   width: 30px;
   height: 4px;
@@ -117,6 +115,6 @@
   cursor: pointer;
 }
 
-.itcss__indicator_active {
+.VCss__indicator_active {
   background-color: #fff;
 }

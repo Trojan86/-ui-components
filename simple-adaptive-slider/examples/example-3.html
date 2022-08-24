@@ -12,7 +12,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // инициализация слайдера
-      var slider = new ItcSimpleSlider('.itcss', {
+      var slider = new VCSimpleSlider('.VCss', {
         loop: true,
         autoplay: true,
         swipe: true
@@ -28,15 +28,15 @@
     }
 
     /* дополнительные стили для этого примера */
-    .itcss__items {
+    .VCss__items {
       counter-reset: slide;
     }
 
-    .itcss__item {
+    .VCss__item {
       counter-increment: slide;
     }
 
-    .itcss__item>div::before {
+    .VCss__item>div::before {
       content: counter(slide);
       position: absolute;
       top: 10px;
@@ -47,7 +47,7 @@
       font-weight: bold;
     }
 
-    .itcss__item > div {
+    .VCss__item > div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -67,7 +67,7 @@
       }
     }
 
-    .itcss__item_active .itcss__text {
+    .VCss__item_active .VCss__text {
       animation-name: fadeIn;
       animation-duration: 2s;
     }
@@ -76,33 +76,33 @@
 
 <body>
   <!-- Разметка слайдера -->
-  <div class="itcss">
-    <div class="itcss__wrapper">
-      <div class="itcss__items">
-        <div class="itcss__item">
+  <div class="VCss">
+    <div class="VCss__wrapper">
+      <div class="VCss__items">
+        <div class="VCss__item">
           <div style="height: 250px; background: #3f51b5;">
-            <div class="itcss__text">Text 1</div>
+            <div class="VCss__text">Text 1</div>
           </div>
         </div>
-        <div class="itcss__item">
+        <div class="VCss__item">
           <div style="height: 250px; background: #607d8b;">
-            <div class="itcss__text">Text 2</div>
+            <div class="VCss__text">Text 2</div>
           </div>
         </div>
-        <div class="itcss__item">
+        <div class="VCss__item">
           <div style="height: 250px; background: #f44336;">
-            <div class="itcss__text">Text 3</div>
+            <div class="VCss__text">Text 3</div>
           </div>
         </div>
-        <div class="itcss__item">
+        <div class="VCss__item">
           <div style="height: 250px; background: #4caf50;">
-            <div class="itcss__text">Text 4</div>
+            <div class="VCss__text">Text 4</div>
           </div>
         </div>
       </div>
     </div>
-    <a class="itcss__control itcss__control_prev" href="#" role="button" data-slide="prev"></a>
-    <a class="itcss__control itcss__control_next" href="#" role="button" data-slide="next"></a>
+    <a class="VCss__control VCss__control_prev" href="#" role="button" data-slide="prev"></a>
+    <a class="VCss__control VCss__control_next" href="#" role="button" data-slide="next"></a>
   </div>
 </body>
 

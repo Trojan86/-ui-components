@@ -42,8 +42,8 @@
   <script>
     // получаем элемент
     const elTabs = document.querySelector('#tabs');
-    // инициализируем элемент как ItcTabs
-    const tabs = new ItcTabs(elTabs);
+    // инициализируем элемент как VCTabs
+    const tabs = new VCTabs(elTabs);
 
     const data = {
       'tabs1-1': [
@@ -82,7 +82,7 @@
       output = output.replace('{{content}}', content);
       if (!target.querySelector(`#${id}`)) {
         target.insertAdjacentHTML('beforeend', output);
-        const tab = new ItcTabs(`#${id}`);
+        const tab = new VCTabs(`#${id}`);
         tab.showByIndex(0);
       }
     }
@@ -96,7 +96,7 @@
       });
     }
 
-    elTabs.addEventListener('tab.itc.change', () => {
+    elTabs.addEventListener('tab.VC.change', () => {
       elTabs.querySelectorAll('.tabs__pane_show').forEach(el => {
         const id = el.id.replace('tab', 'tabs');
         if (data[id]) {

@@ -1,7 +1,5 @@
 /**
- * Toast (https://github.com/itchief/ui-components/tree/master/toast)
- * Copyright 2020 - 2021 Alexander Maltsev
- * Licensed under MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+ * Copyright 2020 - 2022
 **/
 
 class Toast {

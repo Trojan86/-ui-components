@@ -1,4 +1,4 @@
-class ItcAccordion {
+class VCAccordion {
   constructor(target, config) {
     this._el = typeof target === 'string' ? document.querySelector(target) : target;
     const defaultConfig = {

@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ChiefSlider [Example 1]</title>
-  <link rel="stylesheet" href="../itc-slider.css">
-  <script src="../itc-slider.js" defer></script>
+  <link rel="stylesheet" href="../VC-slider.css">
+  <script src="../VC-slider.js" defer></script>
   <style>
     *,
     *::before,
@@ -38,16 +38,16 @@
 
     .slider__item {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-      flex: 0 0 50%;
-      max-width: 50%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
       counter-increment: slide;
       height: 250px;
       position: relative;
     }
 
     .slider__item::before {
-      content: counter(slide) "/4";
+      content: counter(slide) "/5";
       position: absolute;
       top: 10px;
       right: 20px;
@@ -84,7 +84,7 @@
 
   <div class="container">
 
-    <div class="slider" data-slider="itc-slider" data-loop="true">
+    <div class="slider">
       <div class="slider__container">
         <div class="slider__wrapper">
           <div class="slider__items">
@@ -100,6 +100,9 @@
             <div class="slider__item">
               <!-- Контент 4 слайда -->
             </div>
+            <div class="slider__item">
+              <!-- Контент 5 слайда -->
+            </div>
           </div>
         </div>
       </div>
@@ -107,7 +110,26 @@
       <a href="#" class="slider__control" data-slide="next"></a>
     </div>
 
+    <div class="slider-counter"></div>
+
   </div>
+
+  <script>
+    /*document.addEventListener('DOMContentLoaded', function () {
+      const slider = new ChiefSlider('.slider', {
+        loop: true
+      });
+      const sliderItems = document.querySelector('.slider__items');
+      const sliderCounter = document.querySelector('.slider-counter');
+      const updateCounter = () => {
+        const index = parseInt(sliderItems.querySelector('.slider__item_active').dataset.index) + 1;
+        const count = sliderItems.querySelectorAll('.slider__item').length;
+        sliderCounter.textContent = `${index}/${count}`;
+      }
+      updateCounter();
+      sliderItems.addEventListener('transitionend', updateCounter);
+    });*/
+  </script>
 
 </body>
 
